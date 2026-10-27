@@ -643,6 +643,56 @@ textarea.form-control { resize:vertical; min-height:120px; }
   .svc-hiw-grid { grid-template-columns:1fr; }
 }
 
+/* ── BLOG ───────────────────────── */
+.blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.blog-card { border:1.5px solid var(--border); border-radius:var(--r); background:var(--bg); overflow:hidden; cursor:pointer; transition:border-color 220ms, box-shadow 220ms, transform 220ms; display:flex; flex-direction:column; }
+.blog-card:hover { border-color:var(--border-hov); box-shadow:var(--shadow-md); transform:translateY(-4px); }
+.blog-card-thumb { aspect-ratio:16/9; background:linear-gradient(135deg,var(--brand) 0%,var(--brand-dk) 100%); display:flex; align-items:center; justify-content:center; padding:28px; position:relative; overflow:hidden; }
+.blog-card-thumb::after { content:''; position:absolute; bottom:-40px; right:-40px; width:140px; height:140px; border-radius:50%; background:rgba(255,255,255,.07); }
+.blog-card-thumb-icon { color:rgba(255,255,255,.85); position:relative; z-index:1; }
+.blog-card-body { padding:22px 24px 28px; display:flex; flex-direction:column; flex:1; }
+.blog-card-cat { font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--brand); margin-bottom:10px; }
+.blog-card-title { font-family:var(--display); font-size:17px; font-weight:700; line-height:1.3; color:var(--text); margin-bottom:10px; letter-spacing:-.01em; }
+.blog-card-excerpt { font-size:13px; line-height:1.75; color:var(--text2); margin-bottom:18px; flex:1; }
+.blog-card-meta { display:flex; align-items:center; justify-content:space-between; font-size:11px; color:var(--text2); font-weight:500; padding-top:14px; border-top:1px solid var(--border); }
+.blog-card-read { color:var(--brand); font-weight:700; font-size:12px; display:flex; align-items:center; gap:4px; }
+
+/* Blog post page */
+.blog-post-back-wrap { padding:28px 60px 0; max-width:800px; margin:0 auto; }
+.blog-post-back { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:var(--text2); cursor:pointer; border:none; background:none; padding:0; transition:color 150ms; font-family:var(--body); }
+.blog-post-back:hover { color:var(--brand); }
+.blog-post-hero { padding:40px 60px 52px; max-width:800px; margin:0 auto; }
+.blog-post-cat { font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--brand); margin-bottom:14px; display:block; }
+.blog-post-title { font-family:var(--display); font-size:clamp(30px,4.5vw,52px); font-weight:700; line-height:1.1; letter-spacing:-.02em; color:var(--text); margin-bottom:18px; }
+.blog-post-title em { font-style:italic; color:var(--brand); }
+.blog-post-meta { display:flex; align-items:center; gap:20px; font-size:12px; color:var(--text2); font-weight:500; padding-bottom:28px; border-bottom:1px solid var(--border); }
+.blog-post-author { display:flex; align-items:center; gap:8px; }
+.blog-post-author-dot { width:28px; height:28px; border-radius:50%; background:var(--brand); display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:700; flex-shrink:0; }
+.blog-post-body { padding:40px 60px 80px; max-width:800px; margin:0 auto; }
+.blog-post-body h2 { font-family:var(--display); font-size:clamp(20px,2.5vw,28px); font-weight:700; letter-spacing:-.01em; color:var(--text); margin:40px 0 14px; line-height:1.2; }
+.blog-post-body h2 em { font-style:italic; color:var(--brand); }
+.blog-post-body p { font-size:15px; line-height:1.9; color:var(--text2); margin-bottom:18px; }
+.blog-post-body strong { color:var(--text); font-weight:700; }
+.blog-post-body ul, .blog-post-body ol { padding-left:22px; margin-bottom:18px; }
+.blog-post-body li { font-size:15px; line-height:1.85; color:var(--text2); margin-bottom:8px; }
+.blog-post-body li strong { color:var(--text); }
+.blog-tip { background:var(--brand-lt); border-left:3px solid var(--brand); border-radius:0 var(--r) var(--r) 0; padding:18px 22px; margin:24px 0; }
+.blog-tip p { margin:0; color:var(--text); font-size:14px; line-height:1.75; }
+.blog-tip strong { color:var(--brand); }
+.blog-post-cta { background:var(--brand); border-radius:var(--r); padding:40px; text-align:center; margin-top:48px; }
+.blog-post-cta h3 { font-family:var(--display); font-size:22px; font-weight:700; color:#fff; margin-bottom:10px; }
+.blog-post-cta p { color:rgba(255,255,255,.8); font-size:14px; margin-bottom:20px; }
+@media (max-width:640px) {
+  .blog-grid { grid-template-columns:1fr; }
+  .blog-post-back-wrap, .blog-post-hero, .blog-post-body { padding-left:20px; padding-right:20px; }
+  .blog-post-hero { padding-top:28px; padding-bottom:32px; }
+  .blog-post-body { padding-bottom:48px; }
+}
+@media (max-width:900px) {
+  .blog-grid { grid-template-columns:1fr 1fr; }
+  .blog-post-back-wrap, .blog-post-hero, .blog-post-body { padding-left:32px; padding-right:32px; }
+}
+
 /* ── FAQ SECTION ────────────────── */
 .faq-section { padding-bottom:80px; }
 .faq-grid { display:flex; flex-direction:column; gap:12px; max-width:800px; }
@@ -684,6 +734,91 @@ textarea.form-control { resize:vertical; min-height:120px; }
   .hiw-header { margin-bottom:40px; }
   .hiw-step { padding:28px 0; }
 }
+
+/* ── AUDIT TOOL ─────────────────── */
+.nav-links .nav-audit-btn { background:var(--brand); color:#fff; padding:6px 18px; border-radius:30px; font-weight:700; transition:background 180ms, transform 150ms, box-shadow 150ms; }
+.nav-links .nav-audit-btn::after { display:none; }
+.nav-links .nav-audit-btn:hover,.nav-links .nav-audit-btn.active { background:var(--brand-dk); color:#fff; transform:translateY(-1px); box-shadow:0 4px 14px rgba(170,99,57,.3); }
+.audit-wrap { max-width:740px; margin:0 auto; }
+.audit-url-form { display:flex; gap:12px; margin:32px auto 14px; max-width:600px; }
+.audit-url-input { flex:1; height:52px; border:1.5px solid var(--border); border-radius:var(--r); padding:0 20px; font-size:15px; background:var(--bg2); color:var(--text); outline:none; transition:border-color 150ms; font-family:var(--body); }
+.audit-url-input:focus { border-color:var(--brand); }
+.audit-run-btn { height:52px; padding:0 28px; background:var(--brand); color:#fff; border:none; border-radius:var(--r); font-family:var(--body); font-size:14px; font-weight:700; cursor:pointer; white-space:nowrap; transition:background 180ms, transform 150ms; flex-shrink:0; }
+.audit-run-btn:hover { background:var(--brand-dk); transform:translateY(-1px); }
+.audit-run-btn:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+.audit-powered { font-size:12px; color:var(--text2); text-align:center; margin:0; }
+.audit-feature-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
+.audit-feature-item { text-align:center; padding:24px; background:var(--bg2); border:1.5px solid var(--border); border-radius:var(--r); }
+.audit-feature-icon { font-size:30px; margin-bottom:10px; }
+.audit-feature-name { font-weight:700; color:var(--text); font-size:14px; margin-bottom:6px; }
+.audit-feature-desc { font-size:13px; color:var(--text2); line-height:1.5; }
+.audit-loading-wrap { text-align:center; padding:80px 24px; }
+.audit-spinner { width:56px; height:56px; border:4px solid var(--border); border-top-color:var(--brand); border-radius:50%; animation:audit-spin 0.9s linear infinite; margin:0 auto 28px; }
+@keyframes audit-spin { to { transform:rotate(360deg); } }
+.audit-progress { background:var(--border); border-radius:99px; height:6px; margin:24px auto 0; max-width:320px; overflow:hidden; }
+.audit-progress-fill { height:100%; background:linear-gradient(90deg,var(--brand),var(--brand-dk)); border-radius:99px; transition:width 1.5s ease; }
+.audit-loading-msg { font-size:14px; color:var(--text2); margin-top:14px; min-height:22px; }
+.audit-overall-banner { background:var(--bg2); border:1.5px solid var(--border); border-radius:var(--r); padding:32px; text-align:center; margin-bottom:28px; }
+.audit-overall-num { font-family:var(--display); font-size:72px; font-weight:700; line-height:1; margin-bottom:8px; }
+.audit-overall-label { font-size:14px; color:var(--text2); }
+.audit-audited-url { font-size:12px; color:var(--brand); margin-top:6px; word-break:break-all; }
+.audit-scores-row { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:0 0 32px; }
+.audit-score-card { background:var(--bg2); border:1.5px solid var(--border); border-radius:var(--r); padding:24px 16px; text-align:center; }
+.audit-score-circle { width:82px; height:82px; border-radius:50%; margin:0 auto 14px; display:flex; align-items:center; justify-content:center; font-family:var(--display); font-size:24px; font-weight:700; }
+.audit-score-circle.grade-good { background:rgba(34,197,94,.1); color:#16a34a; border:3px solid #22c55e; }
+.audit-score-circle.grade-ok   { background:rgba(234,179,8,.1);  color:#ca8a04; border:3px solid #eab308; }
+.audit-score-circle.grade-bad  { background:rgba(239,68,68,.1);  color:#dc2626; border:3px solid #ef4444; }
+.audit-score-label { font-size:13px; font-weight:700; color:var(--text); }
+.audit-score-sub { font-size:11px; color:var(--text2); margin-top:3px; }
+.audit-gate-wrap { position:relative; min-height:260px; }
+.audit-gate-blur { filter:blur(5px); pointer-events:none; user-select:none; }
+.audit-gate-overlay { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; z-index:2; }
+.audit-gate-box { background:var(--bg); border:1.5px solid var(--border); border-radius:var(--r); padding:36px 32px; text-align:center; box-shadow:0 8px 40px rgba(0,0,0,.18); max-width:420px; width:90%; }
+.audit-gate-title { font-family:var(--display); font-size:21px; font-weight:700; color:var(--text); margin-bottom:8px; }
+.audit-gate-sub { font-size:14px; color:var(--text2); margin-bottom:22px; line-height:1.6; }
+.audit-email-row { display:flex; gap:10px; }
+.audit-email-input { flex:1; height:46px; border:1.5px solid var(--border); border-radius:var(--r); padding:0 14px; font-size:14px; background:var(--bg2); color:var(--text); outline:none; transition:border-color 150ms; font-family:var(--body); min-width:0; }
+.audit-email-input:focus { border-color:var(--brand); }
+.audit-disclaimer-text { font-size:11px; color:var(--text2); margin-top:10px; opacity:.75; }
+.audit-section-title { font-family:var(--display); font-size:18px; font-weight:700; color:var(--text); margin:36px 0 14px; }
+.audit-cwv-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:16px; }
+.audit-cwv-card { background:var(--bg2); border:1.5px solid var(--border); border-radius:var(--r); padding:18px 14px; text-align:center; }
+.audit-cwv-value { font-family:var(--display); font-size:20px; font-weight:700; margin-bottom:6px; }
+.cwv-good { color:#16a34a; } .cwv-ok { color:#ca8a04; } .cwv-bad { color:#dc2626; }
+.audit-cwv-label { font-size:11px; color:var(--text2); line-height:1.4; }
+.audit-issues-list { display:flex; flex-direction:column; gap:10px; }
+.audit-issue { display:flex; align-items:flex-start; gap:14px; padding:16px 18px; background:var(--bg2); border:1.5px solid var(--border); border-radius:var(--r); }
+.audit-issue.critical { border-left:3px solid #ef4444; }
+.audit-issue.warning  { border-left:3px solid #eab308; }
+.audit-issue.passed   { border-left:3px solid #22c55e; }
+.audit-issue-icon { width:20px; height:20px; flex-shrink:0; margin-top:1px; }
+.audit-issue-body { flex:1; min-width:0; }
+.audit-issue-title { font-size:14px; font-weight:600; color:var(--text); margin-bottom:4px; }
+.audit-issue-desc { font-size:13px; color:var(--text2); line-height:1.6; }
+.audit-issue-fix { display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:600; color:var(--brand); margin-top:8px; cursor:pointer; text-decoration:none; background:none; border:none; font-family:var(--body); padding:0; }
+.audit-issue-fix:hover { text-decoration:underline; }
+.audit-result-cta { background:linear-gradient(135deg,var(--brand) 0%,var(--brand-dk) 100%); border-radius:var(--r); padding:48px 40px; text-align:center; margin:48px 0 80px; }
+.audit-result-cta h3 { font-family:var(--display); font-size:clamp(22px,3vw,32px); font-weight:700; color:#fff; margin-bottom:12px; }
+.audit-result-cta p { color:rgba(255,255,255,.85); font-size:15px; margin-bottom:28px; }
+.audit-back-link { font-size:13px; color:var(--text2); background:none; border:none; cursor:pointer; padding:0; font-family:var(--body); display:inline-flex; align-items:center; gap:5px; transition:color 150ms; margin-bottom:24px; }
+.audit-back-link:hover { color:var(--brand); }
+.audit-error-box { background:rgba(239,68,68,.07); border:1.5px solid rgba(239,68,68,.25); border-radius:var(--r); padding:24px; text-align:center; margin-top:16px; display:none; }
+.audit-error-title { font-weight:700; color:#dc2626; margin-bottom:8px; font-size:15px; }
+.audit-error-desc { font-size:13px; color:var(--text2); line-height:1.6; }
+.audit-retry-btn { margin-top:14px; background:none; border:1.5px solid var(--border); color:var(--text2); padding:9px 22px; border-radius:30px; cursor:pointer; font-family:var(--body); font-size:13px; font-weight:600; transition:border-color 150ms, color 150ms; }
+.audit-retry-btn:hover { border-color:var(--brand); color:var(--brand); }
+@media (max-width:900px) { .audit-feature-grid { grid-template-columns:1fr; gap:12px; } .audit-cwv-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:640px) {
+  .audit-scores-row { grid-template-columns:1fr; }
+  .audit-score-card { display:flex; align-items:center; gap:18px; text-align:left; padding:16px 18px; }
+  .audit-score-circle { width:60px; height:60px; font-size:18px; flex-shrink:0; margin:0; }
+  .audit-cwv-grid { grid-template-columns:1fr; }
+  .audit-url-form { flex-direction:column; }
+  .audit-email-row { flex-direction:column; }
+  .audit-overall-num { font-size:52px; }
+  .audit-result-cta { padding:32px 20px; }
+  .audit-gate-box { padding:28px 18px; }
+}
 </style>
 </head>
 <body>
@@ -699,7 +834,9 @@ textarea.form-control { resize:vertical; min-height:120px; }
       <li><button id="nav-about"     onclick="showPage('about')">About</button></li>
       <li><button id="nav-services"  onclick="showPage('services')">Services</button></li>
       <li><button id="nav-portfolio" onclick="showPage('portfolio')">Portfolio</button></li>
+      <li><button id="nav-blog"      onclick="showPage('blog')">Blog</button></li>
       <li><button id="nav-contact"   onclick="showPage('contact')">Contact</button></li>
+      <li><button id="nav-audit"     onclick="showPage('audit')" class="nav-audit-btn">Free Audit</button></li>
     </ul>
   </div>
   <div class="nav-right">
@@ -724,7 +861,9 @@ textarea.form-control { resize:vertical; min-height:120px; }
   <button onclick="showPage('about');    closeMobileNav()">About</button>
   <button onclick="showPage('services'); closeMobileNav()">Services</button>
   <button onclick="showPage('portfolio');closeMobileNav()">Portfolio</button>
+  <button onclick="showPage('blog');     closeMobileNav()">Blog</button>
   <button onclick="showPage('contact');  closeMobileNav()">Contact</button>
+  <button onclick="showPage('audit');    closeMobileNav()" style="color:var(--brand);font-weight:700;">Free Audit ✦</button>
   <div class="mobile-nav-footer">
     <div class="mobile-nav-social">
       <a href="https://www.fiverr.com/adeyemo_pro20" target="_blank" rel="noopener" aria-label="Fiverr"><svg width="18" height="18" viewBox="0 0 26 26" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 22V14H1V11H3V8.5C3 4.5 5.5 2 9.5 2c1.5 0 3 .5 3 .5L11.5 5.5S10.5 5 9.5 5C7.5 5 6.5 6.5 6.5 8.5V11H12v3H6.5V22H3z"/><rect x="2" y="13" width="10" height="2.5" rx="1.25"/><circle cx="19" cy="5.5" r="2.5"/><rect x="17.5" y="10" width="3" height="12" rx="1.5"/></svg></a>
@@ -751,6 +890,7 @@ textarea.form-control { resize:vertical; min-height:120px; }
       <div class="hero-actions fade-up d3">
         <button class="btn btn-solid" onclick="showPage('contact')">Work with me &rarr;</button>
         <button class="btn btn-outline" onclick="showPage('portfolio')">See results</button>
+        <button class="btn btn-outline" onclick="showPage('audit')" style="border-color:var(--brand);color:var(--brand);">Audit your store free</button>
       </div>
       <!-- Stats hidden on mobile — shown in hero-stats-band below -->
       <div class="hero-stats hero-stats-desktop fade-up d4">
@@ -1212,6 +1352,8 @@ textarea.form-control { resize:vertical; min-height:120px; }
           <a href="#" onclick="showPage('about');return false">About</a>
           <a href="#" onclick="showPage('services');return false">Services</a>
           <a href="#" onclick="showPage('portfolio');return false">Portfolio</a>
+          <a href="#" onclick="showPage('blog');return false">Blog</a>
+          <a href="#" onclick="showPage('audit');return false">Free Audit</a>
           <a href="#" onclick="showPage('contact');return false">Contact</a>
         </div>
       </div>
@@ -2439,6 +2581,560 @@ textarea.form-control { resize:vertical; min-height:120px; }
 
 
 <!-- ════════════════════════════════
+     BLOG LISTING
+════════════════════════════════ -->
+<div id="blog-page" class="page">
+  <div class="page-hero">
+    <p class="eyebrow fade-up">Insights &amp; Guides</p>
+    <h1 class="page-title fade-up d1">E-Commerce <em>Blog</em></h1>
+    <p class="page-sub fade-up d2">Practical guides, strategies, and expert tips to grow your online store — written from real client experience.</p>
+  </div>
+  <div class="section">
+    <div class="blog-grid">
+
+      <div class="blog-card fade-up d1" onclick="showPage('blog-shopify-mistakes')">
+        <div class="blog-card-thumb">
+          <svg class="blog-card-thumb-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Shopify</div>
+          <div class="blog-card-title">5 Shopify Mistakes That Are Killing Your Conversions (And How to Fix Them)</div>
+          <div class="blog-card-excerpt">Most Shopify stores lose sales for the same fixable reasons. Here's what's hurting your conversion rate and exactly how to fix each one.</div>
+          <div class="blog-card-meta">
+            <span>Oct 9, 2026 &bull; 6 min read</span>
+            <span class="blog-card-read">Read &rarr;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up d2" onclick="showPage('blog-tiktok-shop')">
+        <div class="blog-card-thumb" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%)">
+          <svg class="blog-card-thumb-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">TikTok Shop</div>
+          <div class="blog-card-title">How to Set Up TikTok Shop in 2026: A Complete Step-by-Step Guide</div>
+          <div class="blog-card-excerpt">TikTok Shop is one of the fastest-growing e-commerce channels in 2026. This guide walks you through setup, product listing, and your first sales.</div>
+          <div class="blog-card-meta">
+            <span>Oct 9, 2026 &bull; 8 min read</span>
+            <span class="blog-card-read">Read &rarr;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up d3" onclick="showPage('blog-klaviyo-flows')">
+        <div class="blog-card-thumb" style="background:linear-gradient(135deg,#1a4a2e 0%,#0d2818 100%)">
+          <svg class="blog-card-thumb-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Email Marketing</div>
+          <div class="blog-card-title">Klaviyo Email Marketing: The 5 Flows Every E-Commerce Store Needs</div>
+          <div class="blog-card-excerpt">These 5 Klaviyo automations generate revenue on autopilot. If you don't have all of them running, you're leaving serious money on the table.</div>
+          <div class="blog-card-meta">
+            <span>Oct 9, 2026 &bull; 7 min read</span>
+            <span class="blog-card-read">Read &rarr;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up d4" onclick="showPage('blog-marketplace-guide')">
+        <div class="blog-card-thumb" style="background:linear-gradient(135deg,#1a2a4a 0%,#0d1828 100%)">
+          <svg class="blog-card-thumb-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Marketplace</div>
+          <div class="blog-card-title">Amazon vs Etsy vs eBay: Which Marketplace Should You Sell On?</div>
+          <div class="blog-card-excerpt">Each marketplace has a different audience, fee structure, and growth ceiling. Here's how to pick the right one for your product and business model.</div>
+          <div class="blog-card-meta">
+            <span>Oct 9, 2026 &bull; 7 min read</span>
+            <span class="blog-card-read">Read &rarr;</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-wordmark">Dynatech <span>Digital</span></div>
+        <p class="footer-tagline">The growth partner your e-commerce business deserves.</p>
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/glamex_pert63" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram" width="15" height="15"></i></a>
+          <a href="https://www.tiktok.com/@growth_expert__" target="_blank" rel="noopener" aria-label="TikTok"><i data-lucide="music-2" width="15" height="15"></i></a>
+          <a href="https://www.fiverr.com/adeyemo_pro20" target="_blank" rel="noopener" aria-label="Fiverr"><svg width="15" height="15" viewBox="0 0 26 26" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 22V14H1V11H3V8.5C3 4.5 5.5 2 9.5 2c1.5 0 3 .5 3 .5L11.5 5.5S10.5 5 9.5 5C7.5 5 6.5 6.5 6.5 8.5V11H12v3H6.5V22H3z"/><rect x="2" y="13" width="10" height="2.5" rx="1.25"/><circle cx="19" cy="5.5" r="2.5"/><rect x="17.5" y="10" width="3" height="12" rx="1.5"/></svg></a>
+          <a href="https://www.upwork.com/freelancers/~01b498e635a48e78aa?mp_source=share" target="_blank" rel="noopener" aria-label="Upwork"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+          <a href="https://www.facebook.com/share/1EHW3eAug3/" target="_blank" rel="noopener" aria-label="Facebook"><i data-lucide="facebook" width="15" height="15"></i></a>
+          <a href="https://wa.me/message/SP5P5MC62YEBO1" aria-label="WhatsApp"><i data-lucide="message-circle" width="15" height="15"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <div class="footer-nav-links">
+          <a href="#" onclick="showPage('home');return false">Home</a>
+          <a href="#" onclick="showPage('about');return false">About</a>
+          <a href="#" onclick="showPage('services');return false">Services</a>
+          <a href="#" onclick="showPage('portfolio');return false">Portfolio</a>
+          <a href="#" onclick="showPage('blog');return false">Blog</a>
+          <a href="#" onclick="showPage('audit');return false">Free Audit</a>
+          <a href="#" onclick="showPage('contact');return false">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Get in touch</div>
+        <div class="footer-contact-links">
+          <a href="mailto:jgreat462@gmail.com"><i data-lucide="mail" width="14" height="14"></i> jgreat462@gmail.com</a>
+          <a href="https://wa.me/message/SP5P5MC62YEBO1"><i data-lucide="message-circle" width="14" height="14"></i> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&copy; 2026 John Adeyemo. All rights reserved.</div></div>
+  </footer>
+</div>
+
+
+<!-- ════════════════════════════════
+     BLOG POST 1: Shopify Mistakes
+════════════════════════════════ -->
+<div id="blog-shopify-mistakes-page" class="page">
+  <div class="blog-post-back-wrap">
+    <button class="blog-post-back" onclick="showPage('blog')"><i data-lucide="arrow-left" width="14" height="14"></i> Back to Blog</button>
+  </div>
+  <div class="blog-post-hero">
+    <span class="blog-post-cat">Shopify</span>
+    <h1 class="blog-post-title">5 Shopify Mistakes That Are <em>Killing Your Conversions</em> (And How to Fix Them)</h1>
+    <div class="blog-post-meta">
+      <div class="blog-post-author">
+        <div class="blog-post-author-dot">JA</div>
+        <span>John Adeyemo</span>
+      </div>
+      <span>Oct 9, 2026</span>
+      <span>6 min read</span>
+    </div>
+  </div>
+  <div class="blog-post-body">
+    <p>After working on over 300 Shopify stores, I've seen the same mistakes show up again and again — in stores big and small, across every niche. The good news? Every single one is fixable. The bad news? They're silently costing you sales every day you let them sit.</p>
+    <p>Here are the 5 most common Shopify conversion killers and exactly what to do about each one.</p>
+
+    <h2>1. Your Store Loads Too <em>Slowly</em></h2>
+    <p>Page speed is the single biggest conversion factor most store owners ignore. Research shows that a 1-second delay in load time reduces conversions by up to 7%. On mobile, where most of your traffic comes from, slow stores feel broken and untrustworthy.</p>
+    <p><strong>The usual culprits:</strong> uncompressed images, too many apps running, heavy theme code, and unoptimized fonts.</p>
+    <div class="blog-tip"><p><strong>Quick fix:</strong> Run your store through Google PageSpeed Insights. Compress every product image to under 200KB using TinyPNG or Squoosh. Remove any Shopify apps you installed and forgot about — each one adds load time even if you're not using it.</p></div>
+
+    <h2>2. Your Product Pages Don't <em>Build Trust</em></h2>
+    <p>Visitors land on your product page as strangers. Before they buy, they need to trust you. Most Shopify stores fail to provide the social proof, guarantees, and reassurances that tip a visitor from "maybe" to "yes."</p>
+    <p><strong>What's missing on most product pages:</strong></p>
+    <ul>
+      <li>Real customer reviews (not just a star rating — actual written reviews)</li>
+      <li>A clear return and refund policy linked near the Add to Cart button</li>
+      <li>A money-back guarantee badge</li>
+      <li>Real product photos showing the item in use, not just on a white background</li>
+      <li>A size guide or measurement chart if relevant</li>
+    </ul>
+    <div class="blog-tip"><p><strong>Quick fix:</strong> Add a "Why Buy From Us?" section to your product pages with 3–4 trust icons (e.g., Free Returns, Secure Checkout, 24h Support). Use the Judge.me or Loox app to collect and display photo reviews from real customers.</p></div>
+
+    <h2>3. Your Checkout Has Too Many <em>Steps and Friction Points</em></h2>
+    <p>The average e-commerce cart abandonment rate is 70%. For Shopify stores specifically, the biggest drop-off happens at checkout — often because of unexpected shipping costs, too many required fields, or forced account creation.</p>
+    <p><strong>Common friction points:</strong> hiding shipping costs until checkout, asking for a phone number that isn't needed, requiring account creation before purchase, and no express checkout options like Shop Pay or PayPal.</p>
+    <div class="blog-tip"><p><strong>Quick fix:</strong> Enable Shop Pay, Apple Pay, and Google Pay in your Shopify Payments settings. Show estimated shipping costs on product pages. Remove the "Create an account" prompt — offer it as an option after purchase instead.</p></div>
+
+    <h2>4. You Have No <em>Email Capture Strategy</em></h2>
+    <p>Most Shopify stores send traffic to their store, and when visitors leave without buying, that's the end of the relationship. No email, no retargeting, no second chance. This is one of the most expensive mistakes a store owner can make.</p>
+    <p>Your email list is the only marketing channel you truly own. Social media algorithms change. Ad costs rise. But your email list stays with you.</p>
+    <div class="blog-tip"><p><strong>Quick fix:</strong> Install a pop-up offering 10–15% off in exchange for an email address. Set up a Klaviyo welcome flow that delivers the discount code immediately, followed by 2–3 educational emails about your brand. This single automation often generates 5–10% of total store revenue.</p></div>
+
+    <h2>5. Your Navigation Is <em>Confusing Visitors</em></h2>
+    <p>If a visitor can't find what they're looking for within 3 seconds, they leave. Poor navigation is one of the most overlooked conversion killers on Shopify — especially on mobile, where menus that work fine on desktop become impossible to use.</p>
+    <p><strong>Signs your navigation is hurting you:</strong> too many top-level menu items, no search bar in a prominent position, collection pages with no filtering options, and category names that make sense to you but not to your customers.</p>
+    <div class="blog-tip"><p><strong>Quick fix:</strong> Limit your main navigation to 5–6 items maximum. Add a search bar that's always visible on mobile. Add filters to collection pages (by price, color, size). Use clear, customer-facing language — "Skincare" not "Category 1."</p></div>
+
+    <div class="blog-post-cta">
+      <h3>Want a professional Shopify audit?</h3>
+      <p>I'll review your store and give you a specific action plan to fix conversion issues — based on 300+ store audits.</p>
+      <button class="btn-white" onclick="showPage('contact')">Get a free consultation &rarr;</button>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-wordmark">Dynatech <span>Digital</span></div>
+        <p class="footer-tagline">The growth partner your e-commerce business deserves.</p>
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/glamex_pert63" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram" width="15" height="15"></i></a>
+          <a href="https://www.tiktok.com/@growth_expert__" target="_blank" rel="noopener" aria-label="TikTok"><i data-lucide="music-2" width="15" height="15"></i></a>
+          <a href="https://www.fiverr.com/adeyemo_pro20" target="_blank" rel="noopener" aria-label="Fiverr"><svg width="15" height="15" viewBox="0 0 26 26" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 22V14H1V11H3V8.5C3 4.5 5.5 2 9.5 2c1.5 0 3 .5 3 .5L11.5 5.5S10.5 5 9.5 5C7.5 5 6.5 6.5 6.5 8.5V11H12v3H6.5V22H3z"/><rect x="2" y="13" width="10" height="2.5" rx="1.25"/><circle cx="19" cy="5.5" r="2.5"/><rect x="17.5" y="10" width="3" height="12" rx="1.5"/></svg></a>
+          <a href="https://www.upwork.com/freelancers/~01b498e635a48e78aa?mp_source=share" target="_blank" rel="noopener" aria-label="Upwork"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+          <a href="https://www.facebook.com/share/1EHW3eAug3/" target="_blank" rel="noopener" aria-label="Facebook"><i data-lucide="facebook" width="15" height="15"></i></a>
+          <a href="https://wa.me/message/SP5P5MC62YEBO1" aria-label="WhatsApp"><i data-lucide="message-circle" width="15" height="15"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <div class="footer-nav-links">
+          <a href="#" onclick="showPage('home');return false">Home</a>
+          <a href="#" onclick="showPage('services');return false">Services</a>
+          <a href="#" onclick="showPage('blog');return false">Blog</a>
+          <a href="#" onclick="showPage('audit');return false">Free Audit</a>
+          <a href="#" onclick="showPage('contact');return false">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Get in touch</div>
+        <div class="footer-contact-links">
+          <a href="mailto:jgreat462@gmail.com"><i data-lucide="mail" width="14" height="14"></i> jgreat462@gmail.com</a>
+          <a href="https://wa.me/message/SP5P5MC62YEBO1"><i data-lucide="message-circle" width="14" height="14"></i> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&copy; 2026 John Adeyemo. All rights reserved.</div></div>
+  </footer>
+</div>
+
+
+<!-- ════════════════════════════════
+     BLOG POST 2: TikTok Shop Setup
+════════════════════════════════ -->
+<div id="blog-tiktok-shop-page" class="page">
+  <div class="blog-post-back-wrap">
+    <button class="blog-post-back" onclick="showPage('blog')"><i data-lucide="arrow-left" width="14" height="14"></i> Back to Blog</button>
+  </div>
+  <div class="blog-post-hero">
+    <span class="blog-post-cat">TikTok Shop</span>
+    <h1 class="blog-post-title">How to Set Up TikTok Shop in 2026: <em>A Complete Step-by-Step Guide</em></h1>
+    <div class="blog-post-meta">
+      <div class="blog-post-author">
+        <div class="blog-post-author-dot">JA</div>
+        <span>John Adeyemo</span>
+      </div>
+      <span>Oct 9, 2026</span>
+      <span>8 min read</span>
+    </div>
+  </div>
+  <div class="blog-post-body">
+    <p>TikTok Shop has become one of the most powerful e-commerce channels available to online sellers. In 2026, it's no longer just a place for teens to watch dances — it's where millions of buying decisions are made every day, driven by short-form video content and live shopping events.</p>
+    <p>If you haven't set up your TikTok Shop yet, you're leaving a major sales channel untapped. Here's the complete, step-by-step guide to getting started.</p>
+
+    <h2>Step 1: Check Your <em>Eligibility</em></h2>
+    <p>Before anything else, confirm you meet TikTok Shop's requirements. These vary by country, but generally you need:</p>
+    <ul>
+      <li>A TikTok account in good standing (at least 1,000 followers is recommended, though not always required)</li>
+      <li>A registered business entity or the ability to verify your identity as an individual seller</li>
+      <li>A bank account that can receive payouts in your country</li>
+      <li>Products that comply with TikTok's prohibited items policy (no counterfeit goods, restricted categories like weapons, etc.)</li>
+    </ul>
+    <div class="blog-tip"><p><strong>Pro tip:</strong> TikTok Shop is available in the US, UK, Southeast Asia, and several other markets. If you're outside these regions, you may need to set up a business entity in an eligible country. I help clients navigate this — <button onclick="showPage('contact')" style="background:none;border:none;color:var(--brand);font-weight:700;cursor:pointer;font-family:var(--body);font-size:inherit;padding:0;">get in touch</button> if you're stuck.</p></div>
+
+    <h2>Step 2: Create Your <em>TikTok Shop Seller Account</em></h2>
+    <p>Go to <strong>seller.tiktok.com</strong> and register as a seller. You'll need to choose between Individual Seller or Corporate Seller. For most small business owners, Individual works fine to start — you can upgrade later.</p>
+    <p>During registration, you'll submit:</p>
+    <ul>
+      <li>Government-issued ID (passport or driver's licence)</li>
+      <li>Proof of address (bank statement or utility bill)</li>
+      <li>Bank account details for payouts</li>
+      <li>Business documents if registering as a corporate seller</li>
+    </ul>
+    <p>Approval usually takes 1–3 business days. If your application is rejected, it's almost always due to unclear document photos or a name mismatch — resubmit with clearer images.</p>
+
+    <h2>Step 3: Set Up Your <em>Product Catalogue</em></h2>
+    <p>Once approved, you'll have access to the TikTok Shop Seller Centre. This is where you manage products, orders, and analytics.</p>
+    <p>To add products, you need:</p>
+    <ul>
+      <li><strong>High-quality product photos</strong> — minimum 800×800px, white or clean background preferred</li>
+      <li><strong>Keyword-optimised title</strong> — include the main product keyword, key feature, and variant (e.g., "Vitamin C Brightening Face Serum 30ml | Fades Dark Spots &amp; Hyperpigmentation")</li>
+      <li><strong>Detailed product description</strong> — list benefits, ingredients, usage instructions, and FAQs</li>
+      <li><strong>Accurate category selection</strong> — this affects how TikTok's algorithm surfaces your products</li>
+      <li><strong>Pricing and stock levels</strong></li>
+    </ul>
+    <div class="blog-tip"><p><strong>Quick win:</strong> If you already have a Shopify store, install the TikTok app from the Shopify App Store. It lets you sync your entire product catalogue to TikTok Shop in minutes, keeping inventory in sync automatically.</p></div>
+
+    <h2>Step 4: Link Your TikTok <em>Creator Account</em></h2>
+    <p>Your TikTok Shop is separate from your TikTok creator/business account, but they work together. Link them in the Seller Centre under "Account → Linked TikTok Account."</p>
+    <p>Once linked, you can:</p>
+    <ul>
+      <li>Tag products directly in your TikTok videos (a small shopping bag icon appears)</li>
+      <li>Host TikTok LIVE sessions with a product showcase</li>
+      <li>Work with creators and affiliates who tag your products in their videos</li>
+    </ul>
+
+    <h2>Step 5: Drive Sales with <em>Content and Affiliates</em></h2>
+    <p>Having a TikTok Shop is only half the battle. The other half is getting people to see your products. The most effective methods in 2026 are:</p>
+    <ul>
+      <li><strong>Short-form video content</strong> — show the product in use, unboxing, before/after, or problem/solution format. Authenticity outperforms production quality.</li>
+      <li><strong>TikTok LIVE shopping</strong> — go live for 30–60 minutes showcasing products. Live sessions get significant algorithmic boost and convert at very high rates.</li>
+      <li><strong>Affiliate marketing</strong> — use the TikTok Creator Marketplace or open your Shop to affiliates. Creators promote your products for a commission (typically 5–20%). This is zero upfront cost.</li>
+      <li><strong>Paid ads (TikTok Ads Manager)</strong> — once you have proven organic content, scale with paid traffic using Video Shopping Ads or LIVE Shopping Ads.</li>
+    </ul>
+
+    <div class="blog-post-cta">
+      <h3>Need help setting up your TikTok Shop?</h3>
+      <p>I handle the full setup — seller account, product catalogue, affiliate recruitment, and content strategy.</p>
+      <button class="btn-white" onclick="showPage('contact')">Get started &rarr;</button>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-wordmark">Dynatech <span>Digital</span></div>
+        <p class="footer-tagline">The growth partner your e-commerce business deserves.</p>
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/glamex_pert63" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram" width="15" height="15"></i></a>
+          <a href="https://www.tiktok.com/@growth_expert__" target="_blank" rel="noopener" aria-label="TikTok"><i data-lucide="music-2" width="15" height="15"></i></a>
+          <a href="https://www.fiverr.com/adeyemo_pro20" target="_blank" rel="noopener" aria-label="Fiverr"><svg width="15" height="15" viewBox="0 0 26 26" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 22V14H1V11H3V8.5C3 4.5 5.5 2 9.5 2c1.5 0 3 .5 3 .5L11.5 5.5S10.5 5 9.5 5C7.5 5 6.5 6.5 6.5 8.5V11H12v3H6.5V22H3z"/><rect x="2" y="13" width="10" height="2.5" rx="1.25"/><circle cx="19" cy="5.5" r="2.5"/><rect x="17.5" y="10" width="3" height="12" rx="1.5"/></svg></a>
+          <a href="https://www.upwork.com/freelancers/~01b498e635a48e78aa?mp_source=share" target="_blank" rel="noopener" aria-label="Upwork"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+          <a href="https://www.facebook.com/share/1EHW3eAug3/" target="_blank" rel="noopener" aria-label="Facebook"><i data-lucide="facebook" width="15" height="15"></i></a>
+          <a href="https://wa.me/message/SP5P5MC62YEBO1" aria-label="WhatsApp"><i data-lucide="message-circle" width="15" height="15"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <div class="footer-nav-links">
+          <a href="#" onclick="showPage('home');return false">Home</a>
+          <a href="#" onclick="showPage('services');return false">Services</a>
+          <a href="#" onclick="showPage('blog');return false">Blog</a>
+          <a href="#" onclick="showPage('audit');return false">Free Audit</a>
+          <a href="#" onclick="showPage('contact');return false">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Get in touch</div>
+        <div class="footer-contact-links">
+          <a href="mailto:jgreat462@gmail.com"><i data-lucide="mail" width="14" height="14"></i> jgreat462@gmail.com</a>
+          <a href="https://wa.me/message/SP5P5MC62YEBO1"><i data-lucide="message-circle" width="14" height="14"></i> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&copy; 2026 John Adeyemo. All rights reserved.</div></div>
+  </footer>
+</div>
+
+
+<!-- ════════════════════════════════
+     BLOG POST 3: Klaviyo Flows
+════════════════════════════════ -->
+<div id="blog-klaviyo-flows-page" class="page">
+  <div class="blog-post-back-wrap">
+    <button class="blog-post-back" onclick="showPage('blog')"><i data-lucide="arrow-left" width="14" height="14"></i> Back to Blog</button>
+  </div>
+  <div class="blog-post-hero">
+    <span class="blog-post-cat">Email Marketing</span>
+    <h1 class="blog-post-title">Klaviyo Email Marketing: <em>The 5 Flows Every E-Commerce Store Needs</em></h1>
+    <div class="blog-post-meta">
+      <div class="blog-post-author">
+        <div class="blog-post-author-dot">JA</div>
+        <span>John Adeyemo</span>
+      </div>
+      <span>Oct 9, 2026</span>
+      <span>7 min read</span>
+    </div>
+  </div>
+  <div class="blog-post-body">
+    <p>Klaviyo is the gold standard for e-commerce email marketing, and for good reason. Unlike generic email tools, it integrates deeply with Shopify, WooCommerce, and other platforms — giving you real-time customer data that drives highly personalised automation.</p>
+    <p>But most stores only use a fraction of Klaviyo's power. They set up one or two flows and leave thousands in revenue sitting on the table. Here are the 5 essential Klaviyo flows every e-commerce store should have running — and what each one should say.</p>
+
+    <h2>Flow 1: The <em>Welcome Series</em></h2>
+    <p>This is the most important flow in your entire email strategy. When someone signs up to your list (usually through a pop-up offering a discount), they're at peak interest — and that's your window to convert them.</p>
+    <p><strong>Recommended sequence:</strong></p>
+    <ul>
+      <li><strong>Email 1 (Immediate):</strong> Deliver the discount code, introduce the brand, and show your bestsellers. Keep it short and focused on the offer.</li>
+      <li><strong>Email 2 (Day 2):</strong> Tell your brand story. Why did you start this business? What problem do you solve? People buy from people they connect with.</li>
+      <li><strong>Email 3 (Day 4):</strong> Social proof email — showcase reviews, testimonials, or UGC. Address the most common objection your customers have before they buy.</li>
+      <li><strong>Email 4 (Day 7):</strong> Urgency email — remind them the discount code expires soon. Include a clear CTA to shop now.</li>
+    </ul>
+    <div class="blog-tip"><p><strong>Average results:</strong> A well-built welcome series generates 8–15% open rates above industry average and typically converts 3–5% of new subscribers into buyers within the first 7 days.</p></div>
+
+    <h2>Flow 2: The <em>Abandoned Cart Flow</em></h2>
+    <p>On average, 70% of shoppers add items to their cart and leave without buying. The abandoned cart flow is your chance to recover those sales — and it's the highest-ROI automation most stores can run.</p>
+    <p><strong>Recommended sequence:</strong></p>
+    <ul>
+      <li><strong>Email 1 (1 hour after abandonment):</strong> A simple, friendly reminder. Show the abandoned cart items. No discount yet — see if they'll come back on their own.</li>
+      <li><strong>Email 2 (24 hours later):</strong> Address hesitation. Why do people abandon carts in your niche? Answer those objections. Maybe add a small incentive (free shipping, 5% off).</li>
+      <li><strong>Email 3 (72 hours later):</strong> Final recovery attempt with your strongest offer. Limited-time urgency. After this, move them to a browse abandonment or win-back flow.</li>
+    </ul>
+
+    <h2>Flow 3: The <em>Post-Purchase Flow</em></h2>
+    <p>Your relationship with a customer doesn't end when they buy — it starts there. The post-purchase flow builds loyalty, reduces buyer's remorse, and drives repeat purchases.</p>
+    <p><strong>Recommended sequence:</strong></p>
+    <ul>
+      <li><strong>Email 1 (Day 1):</strong> Order confirmation with warm, on-brand messaging. Not just a receipt — make them feel excited about their purchase.</li>
+      <li><strong>Email 2 (Day 3–5, after delivery):</strong> Ask how they're enjoying the product. Invite them to share a photo or leave a review. Include a review link.</li>
+      <li><strong>Email 3 (Day 14):</strong> Cross-sell related products based on what they bought.</li>
+      <li><strong>Email 4 (Day 30):</strong> Replenishment reminder if your product runs out (skincare, supplements, coffee, etc.).</li>
+    </ul>
+
+    <h2>Flow 4: The <em>Browse Abandonment Flow</em></h2>
+    <p>These are visitors who browsed your products but didn't add anything to cart. They're warm — they showed interest — but they didn't commit. Klaviyo tracks this behaviour and lets you trigger an email sequence based on the specific products they viewed.</p>
+    <p>Keep this flow short: 1–2 emails showing the exact products they viewed, with copy focused on what makes that product special. No aggressive discounting needed here — just a gentle nudge.</p>
+
+    <h2>Flow 5: The <em>Win-Back Flow</em></h2>
+    <p>Lapsed customers — people who haven't bought in 90–180 days — are your lowest-hanging fruit for re-engagement. They already know your brand. They've bought before. They just need a reason to come back.</p>
+    <p><strong>Recommended sequence:</strong></p>
+    <ul>
+      <li><strong>Email 1:</strong> "We miss you" — a warm, human message. Show what's new. No discount yet.</li>
+      <li><strong>Email 2 (7 days later):</strong> Offer a comeback discount (10–15%). Show bestsellers or new arrivals.</li>
+      <li><strong>Email 3 (14 days later):</strong> Final attempt. Stronger offer or different angle. If they don't engage after this, suppress them from your list to protect deliverability.</li>
+    </ul>
+    <div class="blog-tip"><p><strong>Pro tip:</strong> All 5 of these flows should be built with Klaviyo's conditional splits so that customers who purchase at any point in a flow are automatically removed from the sequence. Never send a promotional email to someone who already bought.</p></div>
+
+    <div class="blog-post-cta">
+      <h3>Want these flows built for your store?</h3>
+      <p>I set up and optimise Klaviyo email flows for e-commerce brands. Get your automated revenue machine running.</p>
+      <button class="btn-white" onclick="showPage('contact')">Get started &rarr;</button>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-wordmark">Dynatech <span>Digital</span></div>
+        <p class="footer-tagline">The growth partner your e-commerce business deserves.</p>
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/glamex_pert63" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram" width="15" height="15"></i></a>
+          <a href="https://www.tiktok.com/@growth_expert__" target="_blank" rel="noopener" aria-label="TikTok"><i data-lucide="music-2" width="15" height="15"></i></a>
+          <a href="https://www.fiverr.com/adeyemo_pro20" target="_blank" rel="noopener" aria-label="Fiverr"><svg width="15" height="15" viewBox="0 0 26 26" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 22V14H1V11H3V8.5C3 4.5 5.5 2 9.5 2c1.5 0 3 .5 3 .5L11.5 5.5S10.5 5 9.5 5C7.5 5 6.5 6.5 6.5 8.5V11H12v3H6.5V22H3z"/><rect x="2" y="13" width="10" height="2.5" rx="1.25"/><circle cx="19" cy="5.5" r="2.5"/><rect x="17.5" y="10" width="3" height="12" rx="1.5"/></svg></a>
+          <a href="https://www.upwork.com/freelancers/~01b498e635a48e78aa?mp_source=share" target="_blank" rel="noopener" aria-label="Upwork"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+          <a href="https://www.facebook.com/share/1EHW3eAug3/" target="_blank" rel="noopener" aria-label="Facebook"><i data-lucide="facebook" width="15" height="15"></i></a>
+          <a href="https://wa.me/message/SP5P5MC62YEBO1" aria-label="WhatsApp"><i data-lucide="message-circle" width="15" height="15"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <div class="footer-nav-links">
+          <a href="#" onclick="showPage('home');return false">Home</a>
+          <a href="#" onclick="showPage('services');return false">Services</a>
+          <a href="#" onclick="showPage('blog');return false">Blog</a>
+          <a href="#" onclick="showPage('audit');return false">Free Audit</a>
+          <a href="#" onclick="showPage('contact');return false">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Get in touch</div>
+        <div class="footer-contact-links">
+          <a href="mailto:jgreat462@gmail.com"><i data-lucide="mail" width="14" height="14"></i> jgreat462@gmail.com</a>
+          <a href="https://wa.me/message/SP5P5MC62YEBO1"><i data-lucide="message-circle" width="14" height="14"></i> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&copy; 2026 John Adeyemo. All rights reserved.</div></div>
+  </footer>
+</div>
+
+
+<!-- ════════════════════════════════
+     BLOG POST 4: Marketplace Guide
+════════════════════════════════ -->
+<div id="blog-marketplace-guide-page" class="page">
+  <div class="blog-post-back-wrap">
+    <button class="blog-post-back" onclick="showPage('blog')"><i data-lucide="arrow-left" width="14" height="14"></i> Back to Blog</button>
+  </div>
+  <div class="blog-post-hero">
+    <span class="blog-post-cat">Marketplace</span>
+    <h1 class="blog-post-title">Amazon vs Etsy vs eBay: <em>Which Marketplace Should You Sell On?</em></h1>
+    <div class="blog-post-meta">
+      <div class="blog-post-author">
+        <div class="blog-post-author-dot">JA</div>
+        <span>John Adeyemo</span>
+      </div>
+      <span>Oct 9, 2026</span>
+      <span>7 min read</span>
+    </div>
+  </div>
+  <div class="blog-post-body">
+    <p>One of the most common questions I get from new e-commerce sellers is: "Should I sell on Amazon, Etsy, or eBay?" The honest answer is — it depends on what you're selling, who you're selling to, and how much time and capital you have to invest.</p>
+    <p>Each platform has a fundamentally different audience, fee structure, seller dynamic, and growth ceiling. Here's a clear breakdown so you can make the right choice for your business.</p>
+
+    <h2>Amazon: <em>The Scale Play</em></h2>
+    <p>Amazon is the world's largest e-commerce marketplace, with over 300 million active customers. If you want volume and scale, Amazon is unmatched.</p>
+    <p><strong>Best for:</strong></p>
+    <ul>
+      <li>Consumer goods with broad appeal (home, kitchen, electronics, supplements, beauty)</li>
+      <li>Private label sellers who manufacture their own products</li>
+      <li>Retail arbitrage and wholesale reselling</li>
+      <li>Any product where buyers search by category rather than brand</li>
+    </ul>
+    <p><strong>Fee structure:</strong> Amazon charges a referral fee (typically 8–15% of sale price depending on category), plus a monthly seller account fee ($39.99/month for Professional). If you use FBA (Fulfilled by Amazon), there are additional fulfilment and storage fees. All in, expect to pay 25–40% of your revenue in Amazon fees and costs.</p>
+    <p><strong>The challenge:</strong> Competition is fierce. You're often competing against Amazon itself and hundreds of other sellers. Brand building is nearly impossible since buyers see "Sold on Amazon" not your brand. And Amazon can suspend your account with minimal warning.</p>
+    <div class="blog-tip"><p><strong>Bottom line:</strong> Amazon is best for volume-driven sellers who want maximum reach and don't mind operating on thinner margins. It's a revenue engine, not a brand builder.</p></div>
+
+    <h2>Etsy: <em>The Brand-Conscious Choice</em></h2>
+    <p>Etsy is a marketplace built around handmade, vintage, and unique products. Its buyer base is looking for something special — a birthday gift, a personalised item, a handcrafted piece — not just the cheapest option.</p>
+    <p><strong>Best for:</strong></p>
+    <ul>
+      <li>Handmade goods, crafts, and artisan products</li>
+      <li>Personalised or customised items (jewellery, home decor, apparel)</li>
+      <li>Vintage items (must be 20+ years old per Etsy's policy)</li>
+      <li>Digital products (printables, Lightroom presets, templates)</li>
+      <li>Small-batch or unique products that stand out from mass production</li>
+    </ul>
+    <p><strong>Fee structure:</strong> Etsy charges $0.20 per listing (renewable every 4 months), a 6.5% transaction fee on sale price + shipping, and a 3% + $0.25 payment processing fee. Optional Etsy Ads are pay-per-click. Total fees are typically 10–15% of revenue — much more manageable than Amazon.</p>
+    <p><strong>The challenge:</strong> Etsy's algorithm heavily favours shops with strong review histories. New shops can struggle to get visibility. Etsy also has been increasing fees and changing policies frequently, which frustrates established sellers.</p>
+    <div class="blog-tip"><p><strong>Bottom line:</strong> Etsy is ideal if your product is genuinely handmade, personalised, or unique. It allows you to build a recognisable brand within the marketplace and charge premium prices. If you're selling mass-produced items, Etsy is not the right fit.</p></div>
+
+    <h2>eBay: <em>The Versatile Option</em></h2>
+    <p>eBay is often overlooked by newer sellers who associate it with secondhand goods — but it remains a powerful marketplace for the right products. eBay's buyer base is diverse: they're looking for deals, rare items, used goods, and hard-to-find products.</p>
+    <p><strong>Best for:</strong></p>
+    <ul>
+      <li>Used or refurbished goods (electronics, clothing, furniture, collectibles)</li>
+      <li>Niche or hard-to-find products where buyers can't find them elsewhere</li>
+      <li>Retail arbitrage and wholesale clearance</li>
+      <li>Collectors' items (trading cards, vintage toys, coins, memorabilia)</li>
+      <li>Auto parts (eBay Motors is the largest online auto parts marketplace)</li>
+    </ul>
+    <p><strong>Fee structure:</strong> eBay charges a final value fee of 13.25% (up to $7,500) for most categories, capped at certain amounts. For high-volume sellers, the managed payments system simplifies everything. No monthly fee for casual sellers (up to 250 free listings/month).</p>
+    <div class="blog-tip"><p><strong>Bottom line:</strong> eBay is the most flexible marketplace — it accepts new and used goods, supports auctions and fixed-price listings, and has less competition than Amazon in many niches. If your inventory includes used items, it's your best option.</p></div>
+
+    <h2>The Verdict: <em>Which Should You Choose?</em></h2>
+    <p>Here's a simple decision framework:</p>
+    <ul>
+      <li><strong>Selling mass-produced goods and want maximum volume?</strong> → Start with Amazon.</li>
+      <li><strong>Selling handmade, unique, or personalised products?</strong> → Start with Etsy.</li>
+      <li><strong>Selling used, vintage, or hard-to-find items?</strong> → Start with eBay.</li>
+      <li><strong>Have an established brand and want to own the customer relationship?</strong> → Build a Shopify store and use marketplaces as supplementary channels.</li>
+    </ul>
+    <p>Most successful e-commerce sellers eventually list across multiple marketplaces AND have their own Shopify store. The marketplaces drive discovery; the Shopify store drives repeat purchases and brand loyalty.</p>
+
+    <div class="blog-post-cta">
+      <h3>Need help setting up your marketplace listings?</h3>
+      <p>I handle full marketplace setup, product listing optimisation, and multi-channel strategy for Amazon, Etsy, and eBay.</p>
+      <button class="btn-white" onclick="showPage('contact')">Get started &rarr;</button>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-wordmark">Dynatech <span>Digital</span></div>
+        <p class="footer-tagline">The growth partner your e-commerce business deserves.</p>
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/glamex_pert63" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram" width="15" height="15"></i></a>
+          <a href="https://www.tiktok.com/@growth_expert__" target="_blank" rel="noopener" aria-label="TikTok"><i data-lucide="music-2" width="15" height="15"></i></a>
+          <a href="https://www.fiverr.com/adeyemo_pro20" target="_blank" rel="noopener" aria-label="Fiverr"><svg width="15" height="15" viewBox="0 0 26 26" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 22V14H1V11H3V8.5C3 4.5 5.5 2 9.5 2c1.5 0 3 .5 3 .5L11.5 5.5S10.5 5 9.5 5C7.5 5 6.5 6.5 6.5 8.5V11H12v3H6.5V22H3z"/><rect x="2" y="13" width="10" height="2.5" rx="1.25"/><circle cx="19" cy="5.5" r="2.5"/><rect x="17.5" y="10" width="3" height="12" rx="1.5"/></svg></a>
+          <a href="https://www.upwork.com/freelancers/~01b498e635a48e78aa?mp_source=share" target="_blank" rel="noopener" aria-label="Upwork"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+          <a href="https://www.facebook.com/share/1EHW3eAug3/" target="_blank" rel="noopener" aria-label="Facebook"><i data-lucide="facebook" width="15" height="15"></i></a>
+          <a href="https://wa.me/message/SP5P5MC62YEBO1" aria-label="WhatsApp"><i data-lucide="message-circle" width="15" height="15"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <div class="footer-nav-links">
+          <a href="#" onclick="showPage('home');return false">Home</a>
+          <a href="#" onclick="showPage('services');return false">Services</a>
+          <a href="#" onclick="showPage('blog');return false">Blog</a>
+          <a href="#" onclick="showPage('audit');return false">Free Audit</a>
+          <a href="#" onclick="showPage('contact');return false">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Get in touch</div>
+        <div class="footer-contact-links">
+          <a href="mailto:jgreat462@gmail.com"><i data-lucide="mail" width="14" height="14"></i> jgreat462@gmail.com</a>
+          <a href="https://wa.me/message/SP5P5MC62YEBO1"><i data-lucide="message-circle" width="14" height="14"></i> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">&copy; 2026 John Adeyemo. All rights reserved.</div></div>
+  </footer>
+</div>
+
+
+<!-- ════════════════════════════════
      CONTACT
 ════════════════════════════════ -->
 <div id="contact-page" class="page">
@@ -2538,6 +3234,177 @@ textarea.form-control { resize:vertical; min-height:120px; }
       </div>
     </div>
     <div class="footer-bottom"><div class="footer-copy">&copy; 2026 John Adeyemo. All rights reserved.</div></div>
+  </footer>
+</div>
+
+
+<!-- ════════════════════════════════
+     AUDIT TOOL
+════════════════════════════════ -->
+<div id="audit-page" class="page">
+  <div class="page-hero">
+    <p class="eyebrow fade-up">Free Tool</p>
+    <h1 class="page-title fade-up d1">E-Commerce <em>Store Audit</em></h1>
+    <p class="page-sub fade-up d2">Get a real Google-powered analysis of your store's speed, SEO health, and best practices — the same signals Google uses to rank your site.</p>
+  </div>
+
+  <!-- Step 1: URL Input -->
+  <div id="audit-s1">
+    <div class="section" style="padding-top:0;padding-bottom:80px;">
+      <div class="audit-wrap">
+        <form class="audit-url-form" id="audit-url-form" onsubmit="startAudit(event)">
+          <input type="url" id="audit-url-input" class="audit-url-input" placeholder="https://yourstore.com" required autocomplete="url">
+          <button type="submit" id="audit-run-btn" class="audit-run-btn">Run Free Audit &rarr;</button>
+        </form>
+        <p class="audit-powered">Powered by Google PageSpeed Insights &mdash; no account needed</p>
+        <div id="audit-error-box" class="audit-error-box">
+          <div class="audit-error-title" id="audit-error-title">Could not complete the audit</div>
+          <div class="audit-error-desc" id="audit-error-desc">Unable to reach this URL. Please check the address and try again.</div>
+          <button class="audit-retry-btn" onclick="document.getElementById('audit-error-box').style.display='none'">Dismiss</button>
+        </div>
+        <div class="audit-feature-grid">
+          <div class="audit-feature-item fade-up d1">
+            <div class="audit-feature-icon">&#9889;</div>
+            <div class="audit-feature-name">Page Speed</div>
+            <div class="audit-feature-desc">Core Web Vitals, load time &amp; performance score — the metrics that affect your ranking.</div>
+          </div>
+          <div class="audit-feature-item fade-up d2">
+            <div class="audit-feature-icon">&#128269;</div>
+            <div class="audit-feature-name">SEO Health</div>
+            <div class="audit-feature-desc">Meta tags, crawlability, link structure &amp; more — find what's stopping Google from ranking you.</div>
+          </div>
+          <div class="audit-feature-item fade-up d3">
+            <div class="audit-feature-icon">&#10003;</div>
+            <div class="audit-feature-name">Best Practices</div>
+            <div class="audit-feature-desc">Security, accessibility &amp; technical standards that affect trust, rankings &amp; conversions.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Loading -->
+  <div id="audit-s2" style="display:none;">
+    <div class="section" style="padding-top:40px;padding-bottom:80px;">
+      <div class="audit-wrap audit-loading-wrap">
+        <div class="audit-spinner"></div>
+        <h2 style="font-family:var(--display);font-size:24px;font-weight:700;color:var(--text);margin-bottom:10px;">Analysing your store&hellip;</h2>
+        <p id="audit-loading-msg" class="audit-loading-msg">Connecting to your store&hellip;</p>
+        <div class="audit-progress">
+          <div class="audit-progress-fill" id="audit-progress-fill" style="width:5%"></div>
+        </div>
+        <p style="font-size:12px;color:var(--text2);margin-top:16px;">This usually takes 20&ndash;40 seconds. Please wait.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Scores + Email Gate -->
+  <div id="audit-s3" style="display:none;">
+    <div class="section" style="padding-top:0;padding-bottom:80px;">
+      <div class="audit-wrap">
+        <div class="audit-overall-banner">
+          <div class="audit-overall-num" id="audit-overall-num">—</div>
+          <div class="audit-overall-label">Store Health Score <span style="font-size:11px;">(out of 100)</span></div>
+          <div class="audit-audited-url" id="audit-audited-url-s3"></div>
+        </div>
+        <div class="audit-scores-row" id="audit-scores-row-s3"></div>
+        <div class="audit-gate-wrap">
+          <div class="audit-gate-blur" id="audit-gate-blur">
+            <div style="margin-bottom:14px;font-family:var(--display);font-size:17px;font-weight:700;color:var(--text);">Issues Found</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--bg2);border:1.5px solid var(--border);border-left:3px solid #ef4444;border-radius:var(--r);">
+                <div style="width:20px;height:20px;background:#ef4444;border-radius:50%;flex-shrink:0;opacity:.6;"></div>
+                <div style="flex:1;"><div style="height:11px;background:var(--border);border-radius:4px;margin-bottom:8px;width:75%;"></div><div style="height:9px;background:var(--border);border-radius:4px;width:55%;"></div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--bg2);border:1.5px solid var(--border);border-left:3px solid #eab308;border-radius:var(--r);">
+                <div style="width:20px;height:20px;background:#eab308;border-radius:50%;flex-shrink:0;opacity:.6;"></div>
+                <div style="flex:1;"><div style="height:11px;background:var(--border);border-radius:4px;margin-bottom:8px;width:60%;"></div><div style="height:9px;background:var(--border);border-radius:4px;width:80%;"></div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--bg2);border:1.5px solid var(--border);border-left:3px solid #ef4444;border-radius:var(--r);">
+                <div style="width:20px;height:20px;background:#ef4444;border-radius:50%;flex-shrink:0;opacity:.6;"></div>
+                <div style="flex:1;"><div style="height:11px;background:var(--border);border-radius:4px;margin-bottom:8px;width:85%;"></div><div style="height:9px;background:var(--border);border-radius:4px;width:45%;"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="audit-gate-overlay">
+            <div class="audit-gate-box">
+              <div class="audit-gate-title">Your full report is ready</div>
+              <div class="audit-gate-sub" id="audit-gate-sub">Enter your email to unlock the complete issues list and fix recommendations.</div>
+              <form id="audit-email-form" onsubmit="submitAuditEmail(event)">
+                <div class="audit-email-row">
+                  <input type="email" id="audit-email-input" class="audit-email-input" placeholder="your@email.com" required>
+                  <button type="submit" id="audit-email-btn" class="btn btn-solid" style="height:46px;padding:0 20px;font-size:13px;flex-shrink:0;white-space:nowrap;">Unlock Report &rarr;</button>
+                </div>
+                <p class="audit-disclaimer-text">No spam. Only reached out if we can genuinely help.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4: Full Results -->
+  <div id="audit-s4" style="display:none;">
+    <div class="section" style="padding-top:0;padding-bottom:0;">
+      <div class="audit-wrap">
+        <button class="audit-back-link" onclick="resetAudit()">&larr; Run another audit</button>
+        <div class="audit-overall-banner">
+          <div class="audit-overall-num" id="audit-full-overall-num">—</div>
+          <div class="audit-overall-label">Store Health Score <span style="font-size:11px;">(out of 100)</span></div>
+          <div class="audit-audited-url" id="audit-full-url-display"></div>
+        </div>
+        <div class="audit-scores-row" id="audit-scores-row-s4"></div>
+        <div class="audit-section-title">Core Web Vitals</div>
+        <div class="audit-cwv-grid" id="audit-cwv-grid"></div>
+        <div class="audit-section-title">Issues Found</div>
+        <div class="audit-issues-list" id="audit-issues-list"></div>
+        <div class="audit-result-cta">
+          <h3>Ready to fix these issues?</h3>
+          <p>Dynatech Digitals specialises in exactly these problems — speed, SEO, and conversion. Let's talk about your store.</p>
+          <button class="btn" onclick="showPage('contact')" style="background:#fff;color:var(--brand);font-weight:700;height:50px;padding:0 32px;">Book a Free Strategy Call &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-wordmark">Dynatech <span>Digital</span></div>
+        <p class="footer-tagline">The growth partner your e-commerce business deserves.</p>
+        <div class="footer-social-links">
+          <a href="https://www.instagram.com/glamex_pert63" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram" width="15" height="15"></i></a>
+          <a href="https://www.tiktok.com/@growth_expert__" target="_blank" rel="noopener" aria-label="TikTok"><i data-lucide="music-2" width="15" height="15"></i></a>
+          <a href="https://www.fiverr.com/adeyemo_pro20" target="_blank" rel="noopener" aria-label="Fiverr"><svg width="15" height="15" viewBox="0 0 26 26" fill="currentColor"><path d="M3 22V14H1V11H3V8.5C3 4.5 5.5 2 9.5 2c1.5 0 3 .5 3 .5L11.5 5.5S10.5 5 9.5 5C7.5 5 6.5 6.5 6.5 8.5V11H12v3H6.5V22H3z"/><rect x="2" y="13" width="10" height="2.5" rx="1.25"/><circle cx="19" cy="5.5" r="2.5"/><rect x="17.5" y="10" width="3" height="12" rx="1.5"/></svg></a>
+          <a href="https://www.upwork.com/freelancers/~01b498e635a48e78aa?mp_source=share" target="_blank" rel="noopener" aria-label="Upwork"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
+          <a href="https://www.facebook.com/share/1EHW3eAug3/" target="_blank" rel="noopener" aria-label="Facebook"><i data-lucide="facebook" width="15" height="15"></i></a>
+          <a href="https://wa.me/message/SP5P5MC62YEBO1" aria-label="WhatsApp"><i data-lucide="message-circle" width="15" height="15"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <div class="footer-nav-links">
+          <a href="#" onclick="showPage('about');return false">About</a>
+          <a href="#" onclick="showPage('services');return false">Services</a>
+          <a href="#" onclick="showPage('portfolio');return false">Portfolio</a>
+          <a href="#" onclick="showPage('blog');return false">Blog</a>
+          <a href="#" onclick="showPage('audit');return false">Free Audit</a>
+          <a href="#" onclick="showPage('contact');return false">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Get in touch</div>
+        <div class="footer-contact-links">
+          <a href="mailto:jgreat462@gmail.com"><i data-lucide="mail" width="14" height="14"></i> jgreat462@gmail.com</a>
+          <a href="https://wa.me/message/SP5P5MC62YEBO1"><i data-lucide="message-circle" width="14" height="14"></i> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 John Adeyemo. All rights reserved.</div>
+      <div class="footer-copy">E-Commerce &amp; Growth Specialist</div>
+    </div>
   </footer>
 </div>
 
@@ -2697,6 +3564,267 @@ loadSavedPhoto();
 setTimeout(function(){ document.querySelectorAll('.fade-up,.fade-in').forEach(function(el){el.classList.add('visible');}); }, 800);
 startAutoSlide('home');
 startAutoSlide('port');
+
+/* ── AUDIT TOOL ─────────────────────────── */
+var auditResult = null;
+var auditStoreUrl = '';
+var auditMsgTimer = null;
+var auditProgTimer = null;
+
+var AUDIT_MSGS = [
+  'Connecting to your store…',
+  'Running performance analysis…',
+  'Checking SEO signals…',
+  'Testing best practices…',
+  'Generating your report…'
+];
+
+var AUDIT_SERVICE_MAP = {
+  'render-blocking-resources':'Shopify Store Speed Optimization',
+  'uses-optimized-images':'Shopify Store Speed Optimization',
+  'uses-webp-images':'Shopify Store Speed Optimization',
+  'unused-javascript':'Shopify Store Speed Optimization',
+  'unused-css-rules':'Shopify Store Speed Optimization',
+  'uses-responsive-images':'Shopify Store Speed Optimization',
+  'uses-text-compression':'Shopify Store Speed Optimization',
+  'server-response-time':'Shopify Store Speed Optimization',
+  'efficient-animated-content':'Shopify Store Speed Optimization',
+  'meta-description':'E-Commerce SEO',
+  'document-title':'E-Commerce SEO',
+  'hreflang':'E-Commerce SEO',
+  'canonical':'E-Commerce SEO',
+  'robots-txt':'E-Commerce SEO',
+  'crawlable-anchors':'E-Commerce SEO',
+  'link-text':'E-Commerce SEO',
+  'is-crawlable':'E-Commerce SEO',
+  'image-alt':'E-Commerce SEO',
+  'viewport':'Mobile-First Store Design',
+  'tap-targets':'Mobile-First Store Design',
+  'content-width':'Mobile-First Store Design',
+  'is-on-https':'Shopify Store Setup',
+  'no-vulnerable-libraries':'Shopify Store Setup'
+};
+
+function auditShowStep(n) {
+  [1,2,3,4].forEach(function(i){ document.getElementById('audit-s'+i).style.display = i===n?'':'none'; });
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+function auditScoreGrade(n) { return n>=90?'good':n>=50?'ok':'bad'; }
+function auditScoreColor(n) { return n>=90?'#16a34a':n>=50?'#ca8a04':'#dc2626'; }
+
+function auditBuildScoreCards(perf, seo, bp) {
+  return [
+    {label:'Page Speed',      sub:'Mobile performance', val:perf},
+    {label:'SEO Health',      sub:'Search visibility',  val:seo },
+    {label:'Best Practices',  sub:'Technical standards',val:bp  }
+  ].map(function(c){
+    return '<div class="audit-score-card">'+
+      '<div class="audit-score-circle grade-'+auditScoreGrade(c.val)+'">'+c.val+'</div>'+
+      '<div class="audit-score-label">'+c.label+'</div>'+
+      '<div class="audit-score-sub">'+c.sub+'</div>'+
+      '</div>';
+  }).join('');
+}
+
+function startAudit(e) {
+  e.preventDefault();
+  document.getElementById('audit-error-box').style.display = 'none';
+  var url = document.getElementById('audit-url-input').value.trim();
+  if (!url) return;
+  if (!url.startsWith('http://') && !url.startsWith('https://')) url = 'https://'+url;
+  document.getElementById('audit-url-input').value = url;
+  auditStoreUrl = url;
+
+  var btn = document.getElementById('audit-run-btn');
+  btn.textContent = 'Running…'; btn.disabled = true;
+
+  auditShowStep(2);
+
+  var msgEl  = document.getElementById('audit-loading-msg');
+  var fillEl = document.getElementById('audit-progress-fill');
+  var msgIdx = 0, progress = 5;
+  fillEl.style.transition = 'none';
+  fillEl.style.width = '5%';
+  setTimeout(function(){ fillEl.style.transition = 'width 1.5s ease'; }, 50);
+
+  auditMsgTimer = setInterval(function(){
+    msgIdx = (msgIdx+1) % AUDIT_MSGS.length;
+    msgEl.textContent = AUDIT_MSGS[msgIdx];
+  }, 6000);
+
+  auditProgTimer = setInterval(function(){
+    if (progress < 82) { progress += 1.2; fillEl.style.width = Math.min(progress,82)+'%'; }
+  }, 500);
+
+  var apiUrl = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed' +
+    '?url=' + encodeURIComponent(url) +
+    '&strategy=mobile' +
+    '&category=performance&category=seo&category=best-practices&category=accessibility';
+
+  fetch(apiUrl)
+    .then(function(res){ return res.json(); })
+    .then(function(data){
+      clearInterval(auditMsgTimer); clearInterval(auditProgTimer);
+      fillEl.style.width = '100%';
+      btn.textContent = 'Run Free Audit →'; btn.disabled = false;
+      if (data.error) throw new Error(data.error.errors ? data.error.errors[0].message : 'Could not analyse this URL');
+      if (!data.lighthouseResult) throw new Error('No data returned for this URL');
+      auditResult = data;
+      setTimeout(function(){ auditShowTeaser(data); }, 700);
+    })
+    .catch(function(err){
+      clearInterval(auditMsgTimer); clearInterval(auditProgTimer);
+      btn.textContent = 'Run Free Audit →'; btn.disabled = false;
+      auditShowStep(1);
+      var box = document.getElementById('audit-error-box');
+      document.getElementById('audit-error-desc').textContent = err.message || 'Unable to reach this URL. Please check the address and try again.';
+      box.style.display = 'block';
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+}
+
+function auditShowTeaser(data) {
+  var lr = data.lighthouseResult;
+  var perf    = Math.round(lr.categories.performance.score * 100);
+  var seo     = Math.round(lr.categories.seo.score * 100);
+  var bp      = Math.round(lr.categories['best-practices'].score * 100);
+  var overall = Math.round(perf * 0.45 + seo * 0.35 + bp * 0.20);
+
+  var critCount = 0, warnCount = 0;
+  Object.keys(lr.audits).forEach(function(id){
+    var a = lr.audits[id];
+    if (a.score===null||a.score===undefined) return;
+    if (a.scoreDisplayMode==='informative'||a.scoreDisplayMode==='notApplicable') return;
+    if (a.score < 0.5) critCount++;
+    else if (a.score < 0.9) warnCount++;
+  });
+
+  var overallEl = document.getElementById('audit-overall-num');
+  overallEl.textContent = overall;
+  overallEl.style.color = auditScoreColor(overall);
+  document.getElementById('audit-audited-url-s3').textContent = auditStoreUrl;
+  document.getElementById('audit-scores-row-s3').innerHTML = auditBuildScoreCards(perf,seo,bp);
+  document.getElementById('audit-gate-sub').textContent =
+    critCount+' critical issue'+(critCount!==1?'s':'')+' and '+
+    warnCount+' warning'+(warnCount!==1?'s':'')+' found. Enter your email to unlock the complete breakdown.';
+
+  auditShowStep(3);
+}
+
+function submitAuditEmail(e) {
+  e.preventDefault();
+  var email = document.getElementById('audit-email-input').value.trim();
+  var btn   = document.getElementById('audit-email-btn');
+  btn.textContent = 'Unlocking…'; btn.disabled = true;
+
+  var lr      = auditResult.lighthouseResult;
+  var perf    = Math.round(lr.categories.performance.score * 100);
+  var seo     = Math.round(lr.categories.seo.score * 100);
+  var bp      = Math.round(lr.categories['best-practices'].score * 100);
+  var overall = Math.round(perf * 0.45 + seo * 0.35 + bp * 0.20);
+
+  var topIssues = [];
+  Object.keys(lr.audits).forEach(function(id){
+    var a = lr.audits[id];
+    if (a.score!==null&&a.score<0.9&&a.scoreDisplayMode!=='informative'&&a.scoreDisplayMode!=='notApplicable') {
+      topIssues.push(a.title);
+    }
+  });
+
+  fetch('https://formspree.io/f/xqeoopbe', {
+    method:'POST',
+    headers:{'Accept':'application/json','Content-Type':'application/json'},
+    body:JSON.stringify({
+      _subject: 'Store Audit Lead — '+auditStoreUrl,
+      email: email,
+      store_url: auditStoreUrl,
+      speed_score: perf,
+      seo_score: seo,
+      best_practices_score: bp,
+      overall_score: overall,
+      top_issues: topIssues.slice(0,8).join('; ')
+    })
+  }).catch(function(){});
+
+  btn.textContent = 'Unlock Report →'; btn.disabled = false;
+  auditShowFullResults(auditResult);
+}
+
+function auditShowFullResults(data) {
+  var lr      = data.lighthouseResult;
+  var perf    = Math.round(lr.categories.performance.score * 100);
+  var seo     = Math.round(lr.categories.seo.score * 100);
+  var bp      = Math.round(lr.categories['best-practices'].score * 100);
+  var overall = Math.round(perf * 0.45 + seo * 0.35 + bp * 0.20);
+
+  var el = document.getElementById('audit-full-overall-num');
+  el.textContent = overall; el.style.color = auditScoreColor(overall);
+  document.getElementById('audit-full-url-display').textContent = auditStoreUrl;
+  document.getElementById('audit-scores-row-s4').innerHTML = auditBuildScoreCards(perf,seo,bp);
+
+  var CWV = [
+    {id:'largest-contentful-paint', label:'LCP',  desc:'Largest Contentful Paint'},
+    {id:'first-contentful-paint',   label:'FCP',  desc:'First Contentful Paint'  },
+    {id:'cumulative-layout-shift',  label:'CLS',  desc:'Layout Shift'            },
+    {id:'total-blocking-time',      label:'TBT',  desc:'Total Blocking Time'     },
+    {id:'speed-index',              label:'SI',   desc:'Speed Index'             },
+    {id:'interactive',              label:'TTI',  desc:'Time to Interactive'     }
+  ];
+  var cwvHtml = '';
+  CWV.forEach(function(item){
+    var a = lr.audits[item.id]; if (!a) return;
+    var cls = a.score===null?'':a.score>=0.9?'cwv-good':a.score>=0.5?'cwv-ok':'cwv-bad';
+    cwvHtml += '<div class="audit-cwv-card">'+
+      '<div class="audit-cwv-value '+cls+'">'+(a.displayValue||'&mdash;')+'</div>'+
+      '<div class="audit-cwv-label"><strong>'+item.label+'</strong><br>'+item.desc+'</div>'+
+      '</div>';
+  });
+  document.getElementById('audit-cwv-grid').innerHTML = cwvHtml;
+
+  var issues = [];
+  Object.keys(lr.audits).forEach(function(id){
+    var a = lr.audits[id];
+    if (a.score===null||a.score===undefined) return;
+    if (a.scoreDisplayMode==='informative'||a.scoreDisplayMode==='notApplicable') return;
+    if (a.score < 0.9) issues.push({id:id,title:a.title,description:(a.description||'').replace(/\[([^\]]+)\]\([^)]+\)/g,'$1'),score:a.score,displayValue:a.displayValue||''});
+  });
+  issues.sort(function(a,b){ return a.score-b.score; });
+
+  var CRIT_ICON = '<svg class="audit-issue-icon" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+  var WARN_ICON = '<svg class="audit-issue-icon" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
+
+  var issHtml = '';
+  if (!issues.length) {
+    issHtml = '<div class="audit-issue passed"><div class="audit-issue-body"><div class="audit-issue-title">No major issues found</div><div class="audit-issue-desc">Your store is performing well across all measured categories.</div></div></div>';
+  } else {
+    issues.forEach(function(item){
+      var isCrit = item.score < 0.5;
+      var svc    = AUDIT_SERVICE_MAP[item.id];
+      var desc   = item.description ? item.description.substring(0,200)+(item.description.length>200?'…':'') : '';
+      var fix    = svc ? '<button class="audit-issue-fix" onclick="showPage(\'contact\')">Fix with Dynatech Digitals: '+svc+' →</button>' : '';
+      issHtml += '<div class="audit-issue '+(isCrit?'critical':'warning')+'">'+
+        (isCrit?CRIT_ICON:WARN_ICON)+
+        '<div class="audit-issue-body">'+
+          '<div class="audit-issue-title">'+item.title+(item.displayValue?' <span style="font-weight:400;color:var(--text2);">('+item.displayValue+')</span>':'')+
+          '</div>'+(desc?'<div class="audit-issue-desc">'+desc+'</div>':'')+fix+
+        '</div></div>';
+    });
+  }
+  document.getElementById('audit-issues-list').innerHTML = issHtml;
+  auditShowStep(4);
+}
+
+function resetAudit() {
+  auditResult = null;
+  auditStoreUrl = '';
+  document.getElementById('audit-url-input').value = '';
+  document.getElementById('audit-email-input').value = '';
+  document.getElementById('audit-email-btn').textContent = 'Unlock Report →';
+  document.getElementById('audit-email-btn').disabled = false;
+  document.getElementById('audit-error-box').style.display = 'none';
+  auditShowStep(1);
+}
 </script>
 </body>
 </html>
